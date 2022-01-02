@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane fx:id="borderPane" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="projet.FXMLDocumentController"
+            prefHeight="650" prefWidth="950" >
+    <top>
+        <MenuBar useSystemMenuBar="true">
+            <Menu text="Fichier">
+                <MenuItem text="Quitter" 
+                          onAction="#quitter" 
+                          >
+                    
+                </MenuItem>
+            </Menu>
+            <Menu text="Mode">
+                <RadioMenuItem text="Edition" fx:id="edition" selected="true"
+                    onAction="#toggleModeEdition">
+                </RadioMenuItem>
+                <CheckMenuItem text="Nim" fx:id="nim"
+                          onAction="#toggleModeNim">
+                </CheckMenuItem>
+                <RadioMenuItem text="Jouer" fx:id="jouer" selected="false"
+                          onAction="#toggleModeJeu">
+                </RadioMenuItem>
+                <Menu text="Mode">
+                    <RadioMenuItem text="Normal" fx:id="normal" selected="true"
+                                   onAction="#toggleModeNormal">
+                    </RadioMenuItem>
+                    <RadioMenuItem text="Misere" fx:id="misere"
+                              onAction="#toggleModeMisere" >
+                    </RadioMenuItem>
+                </Menu>
+                <Menu text="Partie">
+                    <RadioMenuItem text="Humain Humain" fx:id="humainHumain" selected="true"
+                                   onAction="#toggleModeNormal">
+                    </RadioMenuItem>
+                    <RadioMenuItem text="Humain Machine" fx:id="humainMachine"
+                                   onAction="#toggleModeMisere" >
+                    </RadioMenuItem>
+                    <RadioMenuItem text="Machine Machine" fx:id="machineMachine"
+                                   onAction="#toggleModeMisere" >
+                    </RadioMenuItem>
+                </Menu>
+                <MenuItem text="Effacer"
+                          onAction="#effacer"
+                          >
+                </MenuItem>
+
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <Pane fx:id="pane" focusTraversable="true"/> 
+    </center>
+    <bottom>
+        <ToolBar>
+            <items>
+                <ToggleButton fx:id="sommetButton" text="Sommet"/>
+                <ToggleButton fx:id="areteButton" text="Arete"/>
+                <ToggleButton fx:id="selectButton" text="Select"/>
+
+                <ToggleButton fx:id="lineButton" text="Ligne"/>
+                <ToggleButton fx:id="cubicButton" text="Cubique"/>
+                <ToggleButton fx:id="quadButton" text="Quadratic" />
+
+                <ToggleButton fx:id="resetButton" text="Reset"/>
+                <ToggleButton fx:id="supprimerButton" text="Supprimer"/>
+                <ToggleButton fx:id="dupliquerButton" text="Dupliquer" />
+
+                <ToggleButton fx:id="rougeButton" text="Rouge"/>
+                <ToggleButton fx:id="bleuButton" text="Bleu"/>
+                <ToggleButton fx:id="vertButton" text="Vert" />
+            </items> 
+                       
+            <fx:define>
+                <ToggleGroup fx:id="toggleSommetArete" >
+                    <toggles>
+                        <fx:reference source="sommetButton"/>
+                        <fx:reference source="areteButton"/>
+                        <fx:reference source="selectButton"/>
+                    </toggles>
+                </ToggleGroup>
+                <ToggleGroup fx:id="toggle" >
+                    <toggles>
+                        <fx:reference source="lineButton"/>
+                        <fx:reference source="cubicButton"/>
+                        <fx:reference source="quadButton"/>                        
+                    </toggles>            
+                </ToggleGroup>
+                <ToggleGroup fx:id="toggleSelect" >
+                    <toggles>
+                        <fx:reference source="resetButton"/>
+                        <fx:reference source="supprimerButton"/>
+                        <fx:reference source="dupliquerButton"/>
+                    </toggles>
+                </ToggleGroup>
+                <ToggleGroup fx:id="toggleCouleur" >
+                    <toggles>
+                        <fx:reference source="rougeButton"/>
+                        <fx:reference source="bleuButton"/>
+                        <fx:reference source="vertButton"/>
+                    </toggles>
+                </ToggleGroup>
+                <ToggleGroup fx:id="toggleMode" >
+                    <toggles>
+                        <fx:reference source="normal"/>
+                        <fx:reference source="misere"/>
+                    </toggles>
+                </ToggleGroup>
+                <ToggleGroup fx:id="toggleEditionJouer" >
+                    <toggles>
+                        <fx:reference source="edition"/>
+                        <fx:reference source="jouer"/>
+                    </toggles>
+                </ToggleGroup>
+                <ToggleGroup fx:id="toggleHumainMachine" >
+                    <toggles>
+                        <fx:reference source="humainHumain"/>
+                        <fx:reference source="humainMachine"/>
+                        <fx:reference source="machineMachine"/>
+                    </toggles>
+                </ToggleGroup>
+            </fx:define> 
+           
+            
+        </ToolBar>
+            
+    </bottom>
+</BorderPane> 
+
+
+
